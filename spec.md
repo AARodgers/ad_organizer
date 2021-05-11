@@ -1,5 +1,5 @@
 Specs test:
-- [x] Using Ruby on Rails for the 
+- [x] Using Ruby on Rails for the
 - [ ] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes)
 - [ ] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
 - [ ] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
@@ -20,3 +20,16 @@ Confirm:
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
+
+
+Notes: ( need to correct )
+Category has_many Ads through Category_Ad
+Ad has_many Categories through Category_Ad
+Category has_many Sites through Category_Site
+Sites has_many Categories through Category_Site
+Site belongs_to Owner?
+
+category1 = Category.create!(:name => "Dentistry", :ad => "ad1" )
+ad1 = Ad.create!(:title => "Have clean teeth!", :category => "category1")
+site1 = Site.create!(:owner => "owner1")
+owner1 = Owner.create!(:name => "Hometown Dentistry")
