@@ -1,2 +1,2 @@
-class Owner < ApplicationRecord
+class Owner < ActiveRecord::Base
 end

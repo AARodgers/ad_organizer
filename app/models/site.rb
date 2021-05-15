@@ -1,2 +1,2 @@
-class Site < ApplicationRecord
+class Site < ActiveRecord::Base
 end

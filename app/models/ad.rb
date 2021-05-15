@@ -1,2 +1,2 @@
-class Ad < ApplicationRecord
+class Ad < ActiveRecord::Base
 end
