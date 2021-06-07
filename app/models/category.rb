@@ -1,2 +1,2 @@
-class Category < ApplicationRecord
+class CreateCategory < ApplicationRecord
 end

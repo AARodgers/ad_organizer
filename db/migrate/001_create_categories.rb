@@ -1,7 +1,8 @@
-class CreateOwners < ActiveRecord::Migration[4.2]
+class CreateCategories < ActiveRecord::Migration
     def change
-      create_table :owners do |t|
+      create_table :categories do |t|
         t.string :name
+
 
         t.timestamps null: false
       end

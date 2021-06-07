@@ -29,16 +29,13 @@ Ad has_many Categories through Category_Ad
 Category has_many Sites through Category_Site
 Sites has_many Categories through Category_Site
 
-Sites has_many Ads through Site_Ad
-Ads has_many Sites through Site_Ad
-
-Site belongs_to Owner?
+Site belongs_to Owner
 
 Fix:
-Category: :name => "Dentistry", :site_id => "1", :ad_id => "1"
-Ad: :title => "Have Clean Teeth", :product => "Best Toothpaste" :category_id => "1"
-Site: :url => "denversbestdentist.com", category_id => "1", ad_id => "1"
-Owner: :site_id => "1"
+Category: :name => "Dentistry"`
+Ad: :title => "Have Clean Teeth", :content => "Best Toothpaste", :url => "toothpast.com"
+Site: :url => "denversbestdentist.com", owner_id => "1"
+Owner: :name => "Bob", :email => "bob@bob.com"
 
 Fix:
 category1 = Category.create!(:name => "Dentistry", :ad => "ad1" )
