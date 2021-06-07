@@ -27,22 +27,22 @@ ActiveRecord::Schema.define(version: 2021_06_07_211218) do
   end
 
   create_table "categorizations", force: :cascade do |t|
-    t.integer "ad_id_id", null: false
-    t.integer "category_id_id", null: false
+    t.integer "ad_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ad_id_id"], name: "index_categorizations_on_ad_id_id"
-    t.index ["category_id_id"], name: "index_categorizations_on_category_id_id"
+    t.index ["ad_id"], name: "index_categorizations_on_ad_id"
+    t.index ["category_id"], name: "index_categorizations_on_category_id"
   end
 
   create_table "memberships", force: :cascade do |t|
     t.boolean "enabled"
-    t.integer "site_id_id", null: false
-    t.integer "category_id_id", null: false
+    t.integer "site_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id_id"], name: "index_memberships_on_category_id_id"
-    t.index ["site_id_id"], name: "index_memberships_on_site_id_id"
+    t.index ["category_id"], name: "index_memberships_on_category_id"
+    t.index ["site_id"], name: "index_memberships_on_site_id"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -53,16 +53,16 @@ ActiveRecord::Schema.define(version: 2021_06_07_211218) do
   end
 
   create_table "sites", force: :cascade do |t|
-    t.integer "owner_id_id", null: false
+    t.integer "owner_id", null: false
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["owner_id_id"], name: "index_sites_on_owner_id_id"
+    t.index ["owner_id"], name: "index_sites_on_owner_id"
   end
 
-  add_foreign_key "categorizations", "ad_ids"
-  add_foreign_key "categorizations", "category_ids"
-  add_foreign_key "memberships", "category_ids"
-  add_foreign_key "memberships", "site_ids"
-  add_foreign_key "sites", "owner_ids"
+  add_foreign_key "categorizations", "ads"
+  add_foreign_key "categorizations", "categories"
+  add_foreign_key "memberships", "categories"
+  add_foreign_key "memberships", "sites"
+  add_foreign_key "sites", "owners"
 end
