@@ -31,11 +31,13 @@ Sites has_many Categories through Category_Site
 
 Site belongs_to Owner
 
-Fix:
+Schema:
 Category: :name => "Dentistry"`
 Ad: :title => "Have Clean Teeth", :content => "Best Toothpaste", :url => "toothpast.com"
 Site: :url => "denversbestdentist.com", owner_id => "1"
 Owner: :name => "Bob", :email => "bob@bob.com"
+Categories_Sites: :enabled => boolean, :site_id => "1", :category_id => "1"
+Ads_Categories: :ad_id => "1", :category_id = "1"
 
 Fix:
 category1 = Category.create!(:name => "Dentistry", :ad => "ad1" )
