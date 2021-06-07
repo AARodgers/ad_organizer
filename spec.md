@@ -23,11 +23,11 @@ Confirm:
 
 
 Notes: ( need to correct )
-Category has_many Ads through Category_Ad
-Ad has_many Categories through Category_Ad
+Category has_many Ads through Categorizaton
+Ad has_many Categories through Categorization
 
-Category has_many Sites through Category_Site
-Sites has_many Categories through Category_Site
+Category has_many Sites through Membership
+Sites has_many Categories through Membership
 
 Site belongs_to Owner
 
@@ -36,11 +36,5 @@ Category: :name => "Dentistry"`
 Ad: :title => "Have Clean Teeth", :content => "Best Toothpaste", :url => "toothpast.com"
 Site: :url => "denversbestdentist.com", owner_id => "1"
 Owner: :name => "Bob", :email => "bob@bob.com"
-Categories_Sites: :enabled => boolean, :site_id => "1", :category_id => "1"
-Ads_Categories: :ad_id => "1", :category_id = "1"
-
-Fix:
-category1 = Category.create!(:name => "Dentistry", :ad => "ad1" )
-ad1 = Ad.create!(:product => "Best Toothpaste", :title => "Have clean teeth!", :category => "category1")
-site1 = Site.create!(:owner => "owner1", :ulr => "denversbestdentist.com")
-owner1 = Owner.create!(:name => "Hometown Dentistry")
+Membership: :enabled => boolean, :site_id => "1", :category_id => "1"
+Categorization: :ad_id => "1", :category_id = "1"
