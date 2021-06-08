@@ -1,8 +1,17 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    pp request.env["omniauth.auth"]
-    puts 'Facebook Login successful!'
-    redirect_to root_path
+    data = request.env["omniauth.auth"]
+    email = data["info"]["email"]
+    user = User.find_by email: email
+    unless user
+      user = User.create!(
+        email: email,
+        password: SecureRandom.hex(64),
+        provider: :facebook,
+        uid: data["uid"]
+      )
+    end
+    sign_in_and_redirect user
   end
 
   def failure
